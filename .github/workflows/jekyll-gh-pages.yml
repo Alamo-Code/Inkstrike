@@ -29,7 +29,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          lfs: true
+          lfs: true # Crucial for downloading actual LFS files
+      - name: Checkout LFS objects
+        run: git lfs checkout # Optional: explicit pull to ensure completion
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
